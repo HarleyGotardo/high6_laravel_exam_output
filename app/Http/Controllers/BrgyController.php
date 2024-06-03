@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Brgy;
+use App\Models\City;
 
 class BrgyController extends Controller
 {
@@ -17,7 +18,8 @@ class BrgyController extends Controller
     // This function returns the 'brgys.create' view where a new barangay can be created
     public function create()
     {
-        return view('brgys.create');
+        $cities = City::all();
+        return view('brgys.create', compact('cities'));
     }
 
     // This function validates the request data and stores a new barangay in the database, then redirects to the 'brgys.index' view

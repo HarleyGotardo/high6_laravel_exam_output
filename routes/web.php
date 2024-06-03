@@ -13,8 +13,8 @@ Route::get('/', function () {
 // Route for the 'cities' resource
 Route::resource('cities', CityController::class);
 
-// Route for the 'brgies' resource
-Route::resource('brgies', BrgyController::class);
+// Route for the 'brgys' resource
+Route::resource('brgys', BrgyController::class);
 
 // Route for the 'patients' resource
 Route::resource('patients', PatientController::class);

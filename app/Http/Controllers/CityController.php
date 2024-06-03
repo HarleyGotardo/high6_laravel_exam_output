@@ -17,14 +17,15 @@ class CityController extends Controller
     // This function returns the 'cities.create' view where a new city can be created
     public function create()
     {
-        return view('cities.create');
+        $cities = City::all();
+        return view('cities.create', compact('cities'));
     }
 
     // This function validates the request data and stores a new city in the database, then redirects to the 'cities.index' view
     public function store(Request $request)
     {
         $request->validate(['name' => 'required|string|max:255']);
-        City::create($request->all());
+        $city = City::create($request->only('name'));
         return redirect()->route('cities.index')->with('success', 'City created successfully.');
     }
 

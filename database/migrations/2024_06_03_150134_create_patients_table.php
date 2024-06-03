@@ -17,8 +17,8 @@ return new class extends Migration
             $table->unsignedBigInteger('brgy_id');
             $table->string('number');
             $table->string('email')->nullable();
-            $table->string('case_type');
-            $table->string('coronavirus_status');
+            $table->enum('case_type', ['PUI', 'PUM', 'Positive on Covid', 'Negative on Covid']);
+            $table->enum('coronavirus_status', ['active', 'recovered', 'death']);
             $table->timestamps();
     
             $table->foreign('brgy_id')->references('id')->on('brgys')->onDelete('cascade');
