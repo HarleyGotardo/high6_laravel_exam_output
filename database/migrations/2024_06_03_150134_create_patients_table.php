@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('number');
             $table->string('email')->nullable();
             $table->enum('case_type', ['PUI', 'PUM', 'Positive on Covid', 'Negative on Covid']);
-            $table->enum('coronavirus_status', ['active', 'recovered', 'death']);
+            $table->enum('coronavirus_status', ['Active', 'Recovered', 'Death']);
             $table->timestamps();
     
             $table->foreign('brgy_id')->references('id')->on('brgys')->onDelete('cascade');

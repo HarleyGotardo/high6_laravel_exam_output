@@ -22,4 +22,9 @@ class Patient extends Model
         'case_type',
         'coronavirus_status',
     ];
+
+    public function brgy()
+    {
+        return $this->belongsTo(Brgy::class);
+    }
 }

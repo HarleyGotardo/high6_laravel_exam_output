@@ -20,7 +20,7 @@ class PatientController extends Controller
     {
         $brgys = Brgy::all();
         $caseTypes = ['PUI', 'PUM', 'Positive on Covid', 'Negative on Covid'];
-        $coronavirusStatuses = ['active', 'recovered', 'death'];
+        $coronavirusStatuses = ['Active', 'Recovered', 'Death'];
         return view('patients.create', compact('brgys', 'caseTypes', 'coronavirusStatuses'));
     }
 

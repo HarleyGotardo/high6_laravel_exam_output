@@ -12,6 +12,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>City</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,6 +21,15 @@
                         <td>{{ $brgy->id }}</td>
                         <td>{{ $brgy->name }}</td>
                         <td>{{ $brgy->city->name?? 'Unknown' }}</td>
+                        <td>
+                            <a href="{{ route('brgys.show', $brgy->id) }}" class="btn btn-primary">View</a>
+                            <a href="{{ route('brgys.edit', $brgy->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('brgys.destroy', $brgy->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

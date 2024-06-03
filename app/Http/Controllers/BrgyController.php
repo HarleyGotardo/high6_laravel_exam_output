@@ -39,13 +39,17 @@ class BrgyController extends Controller
     // This function retrieves a specific barangay from the database and returns it to the 'brgys.edit' view for editing
     public function edit(Brgy $brgy)
     {
-        return view('brgys.edit', compact('brgy'));
+        $cities = City::all();
+        return view('brgys.edit', compact('brgy', 'cities'));
     }
 
     // This function validates the request data and updates a specific barangay in the database, then redirects to the 'brgys.index' view
     public function update(Request $request, Brgy $brgy)
     {
-        $request->validate(['name' => 'required|string|max:255']);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'city_id' => 'required|integer|exists:cities,id'
+        ]);
         $brgy->update($request->all());
         return redirect()->route('brgys.index')->with('success', 'Barangay updated successfully.');
     }

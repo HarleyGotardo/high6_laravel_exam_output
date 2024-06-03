@@ -13,6 +13,7 @@
                     <th>Name</th>
                     <th>Case Type</th>
                     <th>Status</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,15 @@
                         <td>{{ $patient->name }}</td>
                         <td>{{ $patient->case_type }}</td>
                         <td>{{ $patient->coronavirus_status }}</td>
+                        <td>
+                            <a href="{{ route('patients.show', $patient->id) }}" class="btn btn-primary">View</a> <!-- Add this line for the view button -->
+                            <a href="{{ route('patients.edit', $patient->id) }}" class="btn btn-warning">Edit</a>
+                            <form action="{{ route('patients.destroy', $patient->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

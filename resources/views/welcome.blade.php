@@ -42,7 +42,5 @@
         </div>
     </div>
 
-    <!-- Additional Sections as Needed -->
-
 </div>
 @endsection
