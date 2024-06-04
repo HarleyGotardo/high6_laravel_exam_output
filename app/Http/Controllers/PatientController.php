@@ -44,7 +44,8 @@ class PatientController extends Controller
     // Display the specified resource.
     public function show(Patient $patient)
     {
-        return view('patients.show', compact('patient'));
+        $city = $patient->brgy->city;
+        return view('patients.show', compact('patient', 'city'));
     }
 
     // Show the form for editing the specified resource.

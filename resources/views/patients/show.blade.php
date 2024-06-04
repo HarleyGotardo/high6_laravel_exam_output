@@ -5,6 +5,7 @@
     <h1>{{ $patient->name }}</h1>
     <p><strong>Brgy ID:</strong> {{ $patient->brgy_id }}</p>
     <p><strong>Brgy Name:</strong> {{ $patient->brgy->name }}</p>
+    <p><strong>City:</strong> {{ $patient->brgy->city->name }}</p> <!-- Add this line -->
     <p><strong>Number:</strong> {{ $patient->number }}</p>
     <p><strong>Email:</strong> {{ $patient->email }}</p>
     <p><strong>Case Type:</strong> {{ $patient->case_type }}</p>
@@ -18,3 +19,4 @@
     </form>
 </div>
 @endsection
+?>
